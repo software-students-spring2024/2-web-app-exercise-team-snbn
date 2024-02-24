@@ -12,4 +12,4 @@ For a detailed view of our user stories and to track our progress, visit our [Is
 
 ## Task boards
 
-See instructions. Delete this line and place a link to the task boards here.
+[Sprint 1 Taskboard](https://github.com/orgs/software-students-spring2024/projects/8/views/1)
