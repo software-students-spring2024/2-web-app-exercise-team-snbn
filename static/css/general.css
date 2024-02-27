@@ -1,0 +1,27 @@
+body {
+    background-color: linen;
+}
+
+h1 {
+    background-color: #57068c;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    background-color: rgb(55, 128, 104);
+    color: white;
+    padding: 5px 10px;
+    font-size: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button_container {
+    text-align: center;
+}
