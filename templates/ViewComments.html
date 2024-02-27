@@ -12,7 +12,6 @@
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
     <h2 style="text-align: center;">Comments</h2>
-    <p style="text-align: center;">(Here will be a list of the user comments)</p>
 
        {% for comment in  data%}
    
@@ -20,7 +19,7 @@
              <div>
               {{comment.articleTitle}}
           </div>
-            <a href=/delete_comments/{{comment._id}}>Delete</a>
+            <a href=/delete_comments/{{comment._id}}><button class="button">Delete</button></a>
           <div>
               {{comment.classNumber}}
           </div>
