@@ -11,6 +11,26 @@
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
+    <p>(Here will be a list of classes to search from)</p>
+
+
+          {% for item in data %}
+   
+        <li>
+            <div>
+            {{ item.classTitle }}
+            <a href=/class/{{item._id}}>Select</a>
+            </div>
+              <div>
+            {{ item.classNumber }}
+            </div>
+             <div>
+            {{ item.schedule }}
+            </div>
+            
+
+        </li> 
+        {% endfor %}
     <h2 style="text-align: center;"><b>Course List</b></h2>
     <p style="text-align: center;">(Here will be a list of classes to search from)</p>
 </body>

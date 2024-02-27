@@ -13,9 +13,29 @@
     </div>
     <h2 style="text-align: center;">Comments</h2>
     <p style="text-align: center;">(Here will be a list of the user comments)</p>
-    <div class="button_container">
 
-    </div>
-    
+       {% for comment in  data%}
+   
+        <li>
+             <div>
+              {{comment.articleTitle}}
+          </div>
+            <a href=/delete_comments/{{comment._id}}>Delete</a>
+          <div>
+              {{comment.classNumber}}
+          </div>
+            <div>
+              {{comment.schedule}}
+          </div>
+          <div>
+              {{comment.name}}
+          </div>
+           <div>
+              {{comment.text}}
+          </div>
+            
+
+        </li> 
+        {% endfor %}
 </body>
 </html>

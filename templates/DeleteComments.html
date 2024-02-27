@@ -11,6 +11,30 @@
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
+    <h3>Are you sure you want to delete</h3>
+    <li>{{data.articleTitle}}</li>
+           <li>{{data.classNumber}}</li>
+       <li>{{data.schedule}}</li>
+
+    <li> {{data.name}}</li>
+    <li>{{data.text}}</li>
+
+
+
+    <button onclick="sendDeleteRequest()"> DELETE </button>
+
+    <script>
+        function sendDeleteRequest() {
+        console.log('Here');
+            fetch(window.location.href, {
+                method: 'DELETE'
+            })
+          .then(data => {
+                window.location.href = '/view_comments';
+            })
+        }
+    </script>
+    </div>
     <p style="text-align: center;">(Here you can choose what comments to delete)</p>
 </body>
 </html>
