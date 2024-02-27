@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+    <h1>This is the specific class page.</h1>
+    <p>Specific class</p>
+
+   <li> {{data.classTitle}}</li>
+    <li>{{data.classNumber}}</li>
+    <li>{{data.schedule}}</li>
+    <li>{{data.notes}}</li>
+
+
+   <h3>Comments</h3>
+
+          {% for comment in  comments%}
+   
+        <li>
+          <div>
+              {{comment.name}}
+          </div>
+           <div>
+              {{comment.text}}
+          </div>
+          
+            
+
+        </li> 
+        {% endfor %}
+   
+
+    <h3>Add Comments</h3>
+
+    <form id="commentForm" action="#" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+
+ 
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+         <li>
+    <a href="/"> Home Page</a> 
+        </li>
+        <li>
+    <a href="/course_search"> Course Search</a> 
+        </li>
+        <li>
+    <a href="/view_comments"> View Comments</a> 
+        </li>
+             <li>
+    <a href="/delete_comments"> Delete Comments</a> 
+        </li>
+    </div>
+</body>
+</html>

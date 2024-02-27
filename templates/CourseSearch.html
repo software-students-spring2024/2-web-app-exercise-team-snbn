@@ -7,6 +7,25 @@
     <h1>This is the course search page.</h1>
     <p>(Here will be a list of classes to search from)</p>
 
+
+          {% for item in data %}
+   
+        <li>
+            <div>
+            {{ item.classTitle }}
+            <a href=/class/{{item._id}}>Select</a>
+            </div>
+              <div>
+            {{ item.classNumber }}
+            </div>
+             <div>
+            {{ item.schedule }}
+            </div>
+            
+
+        </li> 
+        {% endfor %}
+
     <ul>
          <li>
     <a href="/"> Home Page</a> 
