@@ -7,6 +7,32 @@
     <h1>This is the view comments page.</h1>
     <p>(Here will be a list of the users comments)</p>
 
+
+       {% for comment in  data%}
+   
+        <li>
+             <div>
+              {{comment.articleTitle}}
+          </div>
+            <a href=/delete_comments/{{comment._id}}>Delete</a>
+          <div>
+              {{comment.classNumber}}
+          </div>
+            <div>
+              {{comment.schedule}}
+          </div>
+          <div>
+              {{comment.name}}
+          </div>
+           <div>
+              {{comment.text}}
+          </div>
+            
+
+        </li> 
+        {% endfor %}
+
+
     <ul>
          <li>
     <a href="/"> Home Page</a> 
