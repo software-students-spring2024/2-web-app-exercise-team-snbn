@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NYU Computer Science Course Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+</head>
+<body>
+    <h1>NYU CS Course Search</h1>
+    <div class="button_container">
+        <a href="/"><button class="button">Home Page</button></a>
+        <a href="/course_search"><button class="button">Course Search</button></a>
+        <a href="/view_comments"><button class="button">All Comments</button></a>
+    </div>
+    <h3>Edit your comment.</h3>
+    <li>{{data.articleTitle}}</li>
+           <li>{{data.classNumber}}</li>
+       <li>{{data.schedule}}</li>
+
+
+
+    
+        <label for="name">Name:</label><br>
+        <input value={{data.name}} type="text" id="newName" name="name" required><br>
+        <label for="comment">Comment:</label><br>
+        <textarea  id="newComment" name="comment" rows="4" cols="50" required>{{data.text}}</textarea><br>
+
+ 
+
+
+          <a href=/view_comments><button class="button">Cancel</button></a>
+
+    <button class="button" onclick="sendEditRequest()"> Save </button>
+
+    <script>
+        function sendEditRequest() {
+        console.log('Edit');
+
+        const newName = document.getElementById('newName').value;
+        const newCom =  document.getElementById('newComment').value;
+
+
+            fetch(window.location.href, {
+                method: 'Put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ newName:newName,  newCom: newCom})
+            })
+          .then(data => {
+                window.location.href = '/view_comments';
+            })
+            
+        }
+    </script>
+    </div>
+</body>
+</html>

@@ -28,7 +28,7 @@ def courseSearch():
      data = collection.find();
      return render_template("CourseSearch.html",data = data);
 
-@app.route("/view_comments", methods=['GET'])
+@app.route("/view_comments", methods=['GET','PUT'])
 def viewComments():
      data = commentsColl.find();
      newData= [];
@@ -64,6 +64,31 @@ def deleteComments(commentID):
 
 
      return render_template("DeleteComments.html",data=data)
+
+@app.route("/edit_comments/<commentID>", methods=['GET','PUT'])
+def editComments(commentID):
+     if request.method == 'PUT':
+          print(request.json);
+          objEdit = ObjectId(commentID);
+
+          commentsColl.update_one({"_id": objEdit}, { "$set": { "name": request.json['newName'],"text": request.json['newCom'] } })
+
+          return redirect("/view_comments", code=302);
+ 
+     objInstance = ObjectId(commentID);
+     data = commentsColl.find_one({"_id": objInstance})
+
+     objInstance2 = ObjectId(data['forID']);
+     articleTitle = collection.find_one({"_id": objInstance2})
+     data["articleTitle"] = articleTitle['classTitle'];
+     data["classNumber"] = articleTitle['classNumber'];
+     data["schedule"] = articleTitle['schedule'];
+
+
+
+     return render_template("EditComments.html",data=data)
+
+
 
 
 @app.route("/class/<classId>", methods=['GET', 'POST'])
