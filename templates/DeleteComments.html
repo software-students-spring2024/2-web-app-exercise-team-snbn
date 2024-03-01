@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>NYU CS Course Search</h1>
-    <div class="button_container">
+    <div class="container">
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
@@ -19,9 +19,8 @@
     <li> {{data.name}}</li>
     <li>{{data.text}}</li>
 
-
-
-    <button class="button" onclick="sendDeleteRequest()"> DELETE </button>
+    <a href=/view_comments><button class="button">Cancel</button></a>
+    <button class="button" onclick="sendDeleteRequest()"> Delete </button>
 
     <script>
         function sendDeleteRequest() {

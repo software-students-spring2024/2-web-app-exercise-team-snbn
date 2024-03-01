@@ -6,30 +6,30 @@
 </head>
 <body>
     <h1>NYU CS Course Search</h1>
-    <div class="button_container">
+    <div class="container">
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
-    <h2 style="text-align: center;"><b>Course List</b></h2>
+    <h2><b>Course List</b></h2>
 
-
-          {% for item in data %}
-   
-        <li>
-            <div>
-            {{ item.classTitle }}
-            <a href=/class/{{item._id}}><button class="button">Select</button></a>
-            </div>
-              <div>
-            {{ item.classNumber }}
-            </div>
-             <div>
-            {{ item.schedule }}
-            </div>
-            
-
-        </li> 
-        {% endfor %}
+    <div class="container">
+        <ul style="display: inline-block; text-align: left; margin: 10px;">
+            {% for item in data %}
+            <li style="margin: 8px; font-size: 20px;">
+                <div>
+                <b>{{ item.classTitle }}</b>
+                <a href=/class/{{item._id}}><button class="button">Add comment</button></a>
+                </div>
+                  <div>
+                {{ item.classNumber }}
+                </div>
+                 <div>
+                {{ item.schedule }}
+                </div>
+            </li> 
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

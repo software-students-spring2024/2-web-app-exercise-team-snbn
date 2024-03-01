@@ -6,18 +6,18 @@
 </head>
 <body>
     <h1>NYU CS Course Search</h1>
-    <div class="button_container">
+    <div class="container">
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
-    <h2 style="text-align: center;">Comments</h2>
-
+    <h2>Comments</h2>
+<div class="container">
+    <ul style="display: inline-block; text-align: left; margin: 10px;">
        {% for comment in  data%}
-   
-        <li>
-             <div>
-              {{comment.articleTitle}}
+        <li style="margin: 8px; font-size: 20px;">
+          <div>
+              <b>{{comment.articleTitle}}</b>
           </div>
             <a href=/delete_comments/{{comment._id}}><button class="button">Delete</button></a>
                 <a href=/edit_comments/{{comment._id}}><button class="button">Edit</button></a>
@@ -33,9 +33,9 @@
            <div>
               {{comment.text}}
           </div>
-            
-
         </li> 
         {% endfor %}
+    </ul>
+</div>
 </body>
 </html>
