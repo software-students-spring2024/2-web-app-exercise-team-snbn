@@ -7,35 +7,35 @@
 
 <body>
     <h1>NYU CS Course Search</h1>
-    <div class="button_container">
+    <div class="container">
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
 
-   <li> {{data.classTitle}}</li>
-    <li>{{data.classNumber}}</li>
-    <li>{{data.schedule}}</li>
-    <li>{{data.notes}}</li>
-
+    <div class="container">   
+        <ul style="display: inline-block; text-align: left; margin: 10px;">
+            <li>{{data.classTitle}}</li>
+            <li>{{data.classNumber}}</li>
+            <li>{{data.schedule}}</li>
+            <li>{{data.notes}}</li>
+        </ul>
+    </div>    
 
    <h3>Comments</h3>
-
-          {% for comment in  comments%}
-   
-        <li>
+    
+    <ul style="display: inline-block; text-align: left; margin: 10px;">
+        {% for comment in  comments%}
+        <li style="margin: 8px;">
           <div>
-              {{comment.name}}
+              <b>{{comment.name}}</b>
           </div>
            <div>
               {{comment.text}}
           </div>
-          
-            
-
         </li> 
         {% endfor %}
-   
+    </ul>
 
     <h3>Add Comment</h3>
 
@@ -46,7 +46,7 @@
         <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
 
  
-        <button type="submit">Submit</button>
+        <button type="submit" class="button">Submit</button>
     </form>
 </body>
 </html>

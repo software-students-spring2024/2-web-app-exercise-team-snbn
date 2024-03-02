@@ -13,3 +13,4 @@ For a detailed view of our user stories and to track our progress, visit our [Is
 ## Task boards
 
 [Sprint 1 Taskboard](https://github.com/orgs/software-students-spring2024/projects/8/views/1)
+[Sprint 2 Taskboard](https://github.com/orgs/software-students-spring2024/projects/32/views/1)

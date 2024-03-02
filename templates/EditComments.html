@@ -6,28 +6,26 @@
 </head>
 <body>
     <h1>NYU CS Course Search</h1>
-    <div class="button_container">
+    <div class="container">
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course Search</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
     </div>
     <h3>Edit your comment.</h3>
-    <li>{{data.articleTitle}}</li>
-           <li>{{data.classNumber}}</li>
-       <li>{{data.schedule}}</li>
-
-
-
     
+    <ul style="display: inline-block; text-align: left; margin: 10px;">
+        <li>{{data.articleTitle}}</li>
+        <li>{{data.classNumber}}</li>
+        <li>{{data.schedule}}</li>
+    </ul>
+
+    <form id="commentForm" action="#" method="post"></form>
         <label for="name">Name:</label><br>
         <input value={{data.name}} type="text" id="newName" name="name" required><br>
         <label for="comment">Comment:</label><br>
         <textarea  id="newComment" name="comment" rows="4" cols="50" required>{{data.text}}</textarea><br>
-
- 
-
-
-          <a href=/view_comments><button class="button">Cancel</button></a>
+    </form>
+    <a href=/view_comments><button class="button">Cancel</button></a>
 
     <button class="button" onclick="sendEditRequest()"> Save </button>
 
