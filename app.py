@@ -26,7 +26,15 @@ def home():
 
 @app.route("/course_search", methods=['GET'])
 def courseSearch():
-     data = collection.find();
+     query = request.args.get('query', '')
+
+     if query:
+          data = collection.find({"$text" : {"$search" : query}})
+     else:
+          data = []
+
+     data = list(data)
+     
      return render_template("CourseSearch.html",data = data);
 
 
