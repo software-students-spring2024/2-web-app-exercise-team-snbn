@@ -32,9 +32,9 @@ def courseSearch():
           data = collection.find({"$text" : {"$search" : query}})
      else:
           data = []
-
+ 
      data = list(data)
-     
+
      return render_template("CourseSearch.html",data = data);
 
 
