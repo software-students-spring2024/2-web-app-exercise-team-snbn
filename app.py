@@ -26,6 +26,7 @@ def home():
 
 @app.route("/course_search", methods=['GET'])
 def courseSearch():
+     """
      query = request.args.get('query', '')
 
      if query:
@@ -36,6 +37,8 @@ def courseSearch():
      # convert
      data = list(data)
 
+     """
+     data = collection.find();
      return render_template("CourseSearch.html",data = data);
 
 
