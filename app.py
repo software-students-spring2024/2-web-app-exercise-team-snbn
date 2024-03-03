@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect,url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+
 import os
 from dotenv import load_dotenv
+from urllib import parse
+
 
 
 #connect to MongoDb collection.
@@ -26,8 +29,33 @@ def home():
 
 @app.route("/course_search", methods=['GET'])
 def courseSearch():
-     data = collection.find();
+     query = request.args.get('query', '')
+
+     if query:
+          data = collection.find({"$text" : {"$search" : query}})
+     else:
+          data = []
+     
+     # convert
+     data = list(data)
+
      return render_template("CourseSearch.html",data = data);
+
+
+@app.route("/filter_search", methods=['GET'])
+def filterSearch():
+
+     search = request.args.get('q');
+
+     if(not search):
+          data = collection.find();
+          return render_template("FilterClasses.html",data = data);
+     else:
+          collection.create_index([('classTitle', 'text'), ('classNumber', 'text'),('schedule', 'text'),('notes', 'text')]);
+          data = collection.find({"$text": {"$search": parse.unquote(search)}})
+          return render_template("FilterClasses.html",data = data);
+
+
 
 @app.route("/view_comments", methods=['GET','PUT'])
 def viewComments():
