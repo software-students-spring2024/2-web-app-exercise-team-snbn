@@ -26,34 +26,16 @@ def home():
 
 @app.route("/course_search", methods=['GET'])
 def courseSearch():
-     """
-     query = request.args.get('query', '')
-
-     if query:
-          data = collection.find({"$text" : {"$search" : query}})
-     else:
-          data = []
      
-     # convert
-     data = list(data)
+    search = request.args.get('q');
 
-     """
-     data = collection.find();
-     return render_template("CourseSearch.html",data = data);
-
-
-@app.route("/filter_search", methods=['GET'])
-def filterSearch():
-
-     search = request.args.get('q');
-
-     if(not search):
-          data = collection.find();
-          return render_template("FilterClasses.html",data = data);
-     else:
-          collection.create_index([('classTitle', 'text'), ('classNumber', 'text'),('schedule', 'text'),('notes', 'text')]);
-          data = collection.find({"$text": {"$search": parse.unquote(search)}})
-          return render_template("FilterClasses.html",data = data);
+    if(not search):
+      data = collection.find();
+      return render_template("CourseSearch.html",data = data);
+    else:
+      collection.create_index([('classTitle', 'text'), ('classNumber',  'text'),('schedule', 'text'),('notes', 'text')]);
+      data = collection.find({"$text": {"$search": parse.unquote(search)}})
+      return render_template("CourseSearch.html",data = data);
 
 
 
