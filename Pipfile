@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 pymongo = "*"
+dotenv = "*"
+os = "*"
+urllib = "*"
 
 [dev-packages]
 

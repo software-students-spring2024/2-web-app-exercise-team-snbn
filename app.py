@@ -1,19 +1,22 @@
 from flask import Flask, render_template, request, redirect,url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+
+import os
+from dotenv import load_dotenv
 from urllib import parse
+
 
 
 #connect to MongoDb collection.
 
-#TODO Add uri to env file later
+load_dotenv()
+uri = os.getenv('MONGO_URI')
 
-uri = "mongodb+srv://user-snbn:vE5Wuy014rIzjQrL@project-2-cluster.iijlv1n.mongodb.net/"
-
-client = MongoClient(uri);
-db = client['project-2-db']  
-collection = db['coursesCollection']  
-commentsColl = db['comments']  
+client = MongoClient(uri)
+db = client[os.getenv('MONGO_DBNAME')]  
+collection = db[os.getenv('MONGO_COURSES')]  
+commentsColl = db[os.getenv('MONGO_COMMENTS')]  
 
 
 #Start Flask server and have routes for each endpoint. 
