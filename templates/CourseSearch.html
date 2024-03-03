@@ -10,9 +10,15 @@
         <a href="/"><button class="button">Home Page</button></a>
         <a href="/course_search"><button class="button">Course List</button></a>
         <a href="/view_comments"><button class="button">All Comments</button></a>
-         <a href="/filter_search"><button class="button">Filter Search</button></a>
+      
     </div>
     <h2><b>Course List</b></h2>
+
+
+    <input id="searchInput"></input>
+
+    <button class="button" onclick="sendEditRequest()"  > Search</button>
+
 
     <div class="container">
         <ul style="display: inline-block; text-align: left; margin: 10px;">
@@ -32,5 +38,19 @@
             {% endfor %}
         </ul>
     </div>
+
+
+       <script>
+        function sendEditRequest() {
+
+          const el = document.getElementById('searchInput');
+
+          const search =  encodeURIComponent(el.value);
+   
+            window.location.href = '/course_search?q='+search;
+       
+        }
+    </script>
+
 </body>
 </html>
