@@ -15,8 +15,8 @@ uri = os.getenv('MONGO_URI')
 
 client = MongoClient(uri)
 db = client[os.getenv('MONGO_DBNAME')]  
-collection = db['coursesCollection']  
-commentsColl = db['comments']  
+collection = db[os.getenv('MONGO_COURSES')]  
+commentsColl = db[os.getenv('MONGO_COMMENTS')]  
 
 
 #Start Flask server and have routes for each endpoint. 
