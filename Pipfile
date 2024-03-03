@@ -8,6 +8,7 @@ flask = "*"
 pymongo = "*"
 dotenv = "*"
 os = "*"
+urllib = "*"
 
 [dev-packages]
 
